@@ -8,7 +8,7 @@ async = require('async');
 
 nconf.env();
 nconf.defaults({
-  'PORT'            : 8080,
+  'PORT'            : 3000,
   'NEO4J'           : 'http://neo4j:123@localhost:7474'
 });
 
@@ -65,6 +65,22 @@ domain.run(function () {
     
   });
 
-  app.listen(nconf.get('PORT'));
+  //enable CORS
+  app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+    next();
+  })
+
+  app.post('/register', function(req, res){
+    console.log(req.body);
+    res.send('hi!');
+  })
+
+  app.listen(nconf.get('PORT'), function(){
+    console.log("listening on ", nconf.get('PORT'));
+  });
   module.exports = app;
 });

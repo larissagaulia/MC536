@@ -10,11 +10,11 @@ angular.module('frontendApp').config(function($urlRouterProvider, $stateProvider
 		url: '/',
 		templateUrl: '/views/main.html'
 	})
-//controller:'RegisterCtrl'
+
 	.state('register', {
 		url: '/register',
 		templateUrl: '/views/register.html',
-		
+		controller:'RegisterCtrl'
 	})
 
 	.state('login', {
