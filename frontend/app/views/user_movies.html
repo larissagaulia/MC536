@@ -1,29 +1,24 @@
 <h4>Hello user {{connectedUser}}</h4>
-<div>It seems like you and the following users have very similar tastes</div>
-<!--
-  <ul ng-repeat="film in recommendedFilms"> 
-
-	<li>
-		<p>Name: {{film.nome}}</p>
-		<p>Year: {{film.ano}}</p>
-		<p>imdb Id: {{film.imdb_id}}</p>
-		<p>overall rating: {{film.rating}}</p>
-		<div>Released on: {{film.additionalInfo.Released}}</div>
-		<div>Runtime: {{film.additionalInfo.Runtime}}</div>
-		<div>Genre: {{film.additionalInfo.Genre}}</div>
-		<div>Director: {{film.additionalInfo.Director}}</div>
-		<div>Actors: {{film.additionalInfo.Actors}}</div>
-		<div>Plot: {{film.additionalInfo.Plot}}</div>
-		<div>Language: {{film.additionalInfo.Language}}</div>
-		<div>Awards: {{film.additionalInfo.Awards}}</div>
-		<img ng-src="{{film.additionalInfo.Poster}}">
-	</li>
-</ul>
--->
-
+<div class="message">We think you'd like the following movies:</div>
+</br>
 
 <div class="film-list">
   <ul ng-repeat="film in recommendedFilms"> 
-    <li><a href="#"><img ng-src="{{film.additionalInfo.Poster}}"></a></li>
+    <li>
+	    <div class="imgWrap ">
+			<img ng-src="{{film.additionalInfo.Poster}}" />
+			<div class="imgDescription">
+				<h4><strong>{{film.nome}}</strong> </h4>
+				<p><h5 class="myLabel">Plot: </h5>{{film.additionalInfo.Plot}}</p>
+				<p><h5 class="myLabel">Released on: </h5>{{film.additionalInfo.Released}}</p>
+				<p><h5 class="myLabel">Genre: </h5>{{film.additionalInfo.Genre}}</p>
+				<p><h5 class="myLabel">Director: </h5>{{film.additionalInfo.Director}}</p>
+				<p><h5 class="myLabel">Language: </h5>{{film.additionalInfo.Language}}</p>
+				<p><h5 class="myLabel">Awards: </h5>{{film.additionalInfo.Awards}}</p>
+			</div>
+			
+		</div>
+    </li>
   </ul>
 </div>
+
