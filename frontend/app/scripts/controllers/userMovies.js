@@ -6,6 +6,14 @@ angular.module('frontendApp')
 
   	$scope.connectedUser = connectedUser;
   	console.log(' connectedUse: ', connectedUser);
+  	var getPhoto = function (film){
+  		console.log('getting photo of:', film.nome);
+  		var imdbID = film.imdb_id;
+  		$http.get('http://www.omdbapi.com/?i='+imdbID)
+  			.success(function (res){
+  				film.additionalInfo = res;
+  			});
+  	};
 
   	 $http.get('http://localhost:3000/'+connectedUser+'/user_movies')
 		.success(function(res){
@@ -13,6 +21,7 @@ angular.module('frontendApp')
 			$scope.recommendedFilms = _.chain(res)
 									.pluck('filme')
 									.pluck('properties')
+									.forEach(getPhoto)
 									.value();
 		})
 		.error(function (err){

@@ -7,5 +7,14 @@
 		<p>Year: {{film.ano}}</p>
 		<p>imdb Id: {{film.imdb_id}}</p>
 		<p>overall rating: {{film.rating}}</p>
+		<div>Released on: {{film.additionalInfo.Released}}</div>
+		<div>Runtime: {{film.additionalInfo.Runtime}}</div>
+		<div>Genre: {{film.additionalInfo.Genre}}</div>
+		<div>Director: {{film.additionalInfo.Director}}</div>
+		<div>Actors: {{film.additionalInfo.Actors}}</div>
+		<div>Plot: {{film.additionalInfo.Plot}}</div>
+		<div>Language: {{film.additionalInfo.Language}}</div>
+		<div>Awards: {{film.additionalInfo.Awards}}</div>
+		<img ng-src="{{film.additionalInfo.Poster}}">
 	</li>
 </ul>
