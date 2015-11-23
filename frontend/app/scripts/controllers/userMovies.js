@@ -9,8 +9,10 @@ angular.module('frontendApp')
 
   	 $http.get('http://localhost:3000/'+connectedUser+'/user_movies')
 		.success(function(res){
-			$scope.similarUsers = _.chain(res)
-									.pluck('Vizinhos')
+			console.log(res);
+			$scope.recommendedFilms = _.chain(res)
+									.pluck('filme')
+									.pluck('properties')
 									.value();
 		})
 		.error(function (err){

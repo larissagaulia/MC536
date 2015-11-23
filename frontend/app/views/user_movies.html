@@ -1,3 +1,11 @@
 <h4>Hello user {{connectedUser}}</h4>
 <div>It seems like you and the following users have very similar tastes</div>
-<div ng-repeat="user in similarUsers"> {{user.properties.userId}}</div>
+
+<ul ng-repeat="film in recommendedFilms"> 
+	<li>
+		<p>Name: {{film.nome}}</p>
+		<p>Year: {{film.ano}}</p>
+		<p>imdb Id: {{film.imdb_id}}</p>
+		<p>overall rating: {{film.rating}}</p>
+	</li>
+</ul>
