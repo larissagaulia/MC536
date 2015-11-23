@@ -17,7 +17,7 @@ router
 router.param('userId', function (request, response, next, userId) {
   async.waterfall([function(next) {
     db.cypher({
-      query : 'MATCH (u1:User {userId: {userId}})-[s:SIMILARIDADE]-(u2:User), (u2)-[a:AVALIOU]->(f:Filme) WHERE NOT((u1)-[:AVALIOU]->(f)) WITH f, s.similaridade as simi, a.nota as nota ORDER BY f.imdb_id, simi DESC WITH f as filme, COLLECT(nota)[0..5] as notas WITH filme, REDUCE(s=0, i IN notas | s + i)*1.0/LENGTH(notas) AS recomendacoes ORDER BY recomendacoes DESC RETURN filme, recomendacoes LIMIT 10',
+      query : 'MATCH (u1:User {userId: {userId}})-[s:SIMILARIDADE]-(u2:User), (u2)-[a:AVALIOU]->(f:Filme) WHERE NOT((u1)-[:AVALIOU]->(f)) WITH f, s.similaridade as simi, a.nota as nota ORDER BY f.imdb_id, simi DESC WITH f as filme, COLLECT(nota)[0..5] as notas WITH filme, REDUCE(s=0, i IN notas | s + i)*1.0/LENGTH(notas) AS recomendacoes ORDER BY recomendacoes DESC RETURN filme, recomendacoes LIMIT 12',
       params: {userId: userId}
     }, next);
   }, function(similarusers, next) {
