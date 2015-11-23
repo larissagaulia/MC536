@@ -23,10 +23,10 @@ angular.module('frontendApp').config(function($urlRouterProvider, $stateProvider
 		controller:'LoginCtrl'
 	})
 
-	.state('films', {
-		url: '/films',
-		templateUrl: '/views/films.html',
-		controller:'FilmsCtrl'
+	.state('user_movies', {
+		url: '/:user_id/user_movies',
+		templateUrl: '/views/user_movies.html',
+		controller:'UserMoviesCtrl'
 	})
 
 	.state('logout', {
@@ -37,4 +37,4 @@ angular.module('frontendApp').config(function($urlRouterProvider, $stateProvider
 	//$httpProvider.interceptors.push('authInterceptor');
 })
 
-.constant('API_URL', 'http://localhost:8080/');
+.constant('API_URL', 'http://localhost:3000/');

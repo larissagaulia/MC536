@@ -41,6 +41,8 @@
 
             <ul class="nav navbar-nav">
               <li ui-sref-active="active"><a href="#/">Home</a></li>
+              <!--TODO: TIRAR ESSA MERDA DE NG-CONTROLLER DAQUI -->
+              <li ui-sref-active="active" ng-controller="MainCtrl"><a href="#/{{CONNECTED_USER}}/user_movies">Movies {{CONNECTED_USER}}</a></li>
               <li ui-sref-active="active"><a ng-href="#/register">Register</a></li>
             </ul>
           </div>
@@ -75,6 +77,7 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -82,8 +85,11 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/register.js"></script>
+        <script src="scripts/controllers/userMovies.js"></script>
         <script src="scripts/directives/validateEquals.js"></script>
         <script src="scripts/app.config.js"></script>
         <!-- endbuild -->
+        <script src="scripts/lodash.js"></script>
+
 </body>
 </html>
